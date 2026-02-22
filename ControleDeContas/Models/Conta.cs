@@ -3,7 +3,7 @@
 namespace ControleDeContas.Models
 {
     internal class Conta(string nome, decimal saldo, string senha, string regiao)
-    {      
+    {
         public string Nome { get; } = TextoUtils.Capitalizar(nome.Trim());
         public decimal Saldo { get; set; } = saldo;
         public string Senha { get; set; } = senha;

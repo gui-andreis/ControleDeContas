@@ -1,7 +1,5 @@
-﻿
-using ControleDeContas.Models;
+﻿using ControleDeContas.Queries;
 using ControleDeContas.Services;
-using ControleDeContas.Queries;
 
 var service = new ContaService();
 

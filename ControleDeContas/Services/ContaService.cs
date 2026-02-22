@@ -19,7 +19,7 @@ namespace ControleDeContas.Services
         public void ListarContas()
         {
             if (_contas.Count > 0)
-            {              
+            {
                 foreach (Conta conta in _contas)
                     Console.WriteLine($"{conta.Nome,-20} | Saldo: {conta.Saldo,15:C} | ID: {conta.ID}");
             }
@@ -31,7 +31,7 @@ namespace ControleDeContas.Services
 
         public void RemoverContas(Guid ID, string senha)
         {
-           int removidas = _contas.RemoveAll(contas => contas.ID == ID && contas.Senha == senha);
+            int removidas = _contas.RemoveAll(contas => contas.ID == ID && contas.Senha == senha);
             if (removidas > 0)
             {
                 Console.WriteLine($"Conta de {ID} removida com sucesso");
@@ -41,7 +41,7 @@ namespace ControleDeContas.Services
                 Console.WriteLine("Não foi possível encotrar uma conta com esse Títular e Senha");
             }
         }
-        
+
         public async Task SalvarContas()
         {
             var path_file = @"C:\\Users\\Pichau\\source\\repos\\ControleDeContas\\ControleDeContas\\Data\\contas.json";
@@ -64,7 +64,7 @@ namespace ControleDeContas.Services
                 {
                     Console.WriteLine($"Erro ao carregar contas: {ex.Message}");
                 }
-            
+
             }
         }
     }

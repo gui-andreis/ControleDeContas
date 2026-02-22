@@ -10,10 +10,10 @@ namespace ControleDeContas.Queries
         {
             var contaFiltradas = contas.Where(c => c.Nome.Contains(nome, StringComparison.OrdinalIgnoreCase)).ToList();
 
-            if (contaFiltradas.Count > 0) 
+            if (contaFiltradas.Count > 0)
             {
-                foreach (var conta in contaFiltradas) 
-                    Console.WriteLine($"{conta.Nome,-10} | Saldo: {conta.Saldo,10:C} | Região:{conta.Regiao,-12} |  ID: {conta.ID}"); 
+                foreach (var conta in contaFiltradas)
+                    Console.WriteLine($"{conta.Nome,-10} | Saldo: {conta.Saldo,10:C} | Região:{conta.Regiao,-12} |  ID: {conta.ID}");
             }
         }
 
