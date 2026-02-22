@@ -15,9 +15,8 @@ namespace ControleDeContas.Queries
         {
             var contaFiltradas = contas.Where(c => c.Nome.Contains(nome, StringComparison.OrdinalIgnoreCase)).ToList();
 
-            if (contaFiltradas.Count() >0) 
+            if (contaFiltradas.Count > 0) 
             {
-                Console.WriteLine($"Buscando pelo nome {nome}:");
                 foreach (var conta in contaFiltradas) 
                     Console.WriteLine($"{conta.Nome,-10} | Saldo: {conta.Saldo,10:C} | Região:{conta.Regiao,-12} |  ID: {conta.ID}"); 
             }
@@ -40,7 +39,6 @@ namespace ControleDeContas.Queries
         public static void OrdenarContasPorGrana(IReadOnlyList<Conta> contas)
         {
             var c_ordenadas = contas.OrderByDescending(c => c.Saldo).ToList();
-            Console.WriteLine("Lista de Contas Ordenadas:");
             foreach (var conta in c_ordenadas)
                 Console.WriteLine($"{conta.Nome,-20} | Saldo: {conta.Saldo,15:C} | Região:{conta.Regiao,-12} | ID: {conta.ID}");
         }
@@ -49,7 +47,7 @@ namespace ControleDeContas.Queries
         {
             var conta = contas.OrderByDescending(c => c.Saldo).FirstOrDefault();
             if (conta != null)
-                Console.WriteLine($"Conta com Maior Saldo: Titular: {conta.Nome,-20}, Região:{conta.Regiao} ,Saldo: {conta.Saldo,15:C}, ID: {conta.ID}");
+                Console.WriteLine($"Titular:{conta.Nome,-20},Região:{conta.Regiao},Saldo:{conta.Saldo,15:C},ID:{conta.ID}");
             else
                 Console.WriteLine("Nenhuma conta encontrada");
         }
@@ -67,15 +65,5 @@ namespace ControleDeContas.Queries
                 }
             }
         }
-
-
-
-        //transferencia entre contas🥶🥶🚀✌️✌️ mais arriscado
-
-
-
-
-
-
     }
 }

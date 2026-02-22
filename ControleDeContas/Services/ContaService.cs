@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-//var contasFiltradas = _contas.Where(conta => conta.Nome == nome);
 
 
 namespace ControleDeContas.Services
@@ -12,7 +11,6 @@ namespace ControleDeContas.Services
     internal class ContaService
     {
         private List<Conta> _contas = new List<Conta>();
-
 
         public void AdicionarContas(Conta conta)
         {
@@ -23,14 +21,10 @@ namespace ControleDeContas.Services
         public IReadOnlyList<Conta> Contas => _contas;
         public void ListarContas()
         {
-
-            
             if (_contas.Count > 0)
-            {
-                Console.WriteLine("Lista de Todas As Contas:");
+            {              
                 foreach (Conta conta in _contas)
                     Console.WriteLine($"{conta.Nome,-20} | Saldo: {conta.Saldo,15:C} | ID: {conta.ID}");
-
             }
             else
             {
@@ -38,11 +32,9 @@ namespace ControleDeContas.Services
             }
         }
 
-
         public void RemoverContas(Guid ID, string senha)
         {
            int removidas = _contas.RemoveAll(contas => contas.ID == ID && contas.Senha == senha);
-
             if (removidas > 0)
             {
                 Console.WriteLine($"Conta de {ID} removida com sucesso");
@@ -52,9 +44,7 @@ namespace ControleDeContas.Services
                 Console.WriteLine("Não foi possível encotrar uma conta com esse Títular e Senha");
             }
         }
-
-       
-
+        
         public async Task SalvarContas()
         {
             var path_file = @"C:\\Users\\Pichau\\source\\repos\\ControleDeContas\\ControleDeContas\\Data\\contas.json";
@@ -63,10 +53,8 @@ namespace ControleDeContas.Services
             Console.WriteLine("Salvo Com Sucesso");
         }
 
-       
         public async Task CarregarContas()
         {
-
             var path_file = "C:\\Users\\Pichau\\source\\repos\\ControleDeContas\\ControleDeContas\\Data\\contas.json";
             if (File.Exists(path_file))
             {
