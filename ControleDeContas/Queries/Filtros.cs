@@ -63,7 +63,7 @@ namespace ControleDeContas.Queries
                 Console.WriteLine($"\n--- {regiao.Key} ---");
                 foreach (var conta in regiao)
                 {
-                    Console.WriteLine($"{conta.Nome,-10} | Saldo: {conta.Saldo,10:C} | ID: {conta.ID}");
+                    Console.WriteLine($"{conta.Nome,-10} | Saldo: {conta.Saldo,10:C} | Região: {conta.Regiao,-12}  |  ID: {conta.ID}");
                 }
             }
         }
