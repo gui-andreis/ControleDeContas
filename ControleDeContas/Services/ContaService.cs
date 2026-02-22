@@ -20,13 +20,16 @@ namespace ControleDeContas.Services
             Console.WriteLine($"conta de {conta.Nome} adicionada com sucesso");
         }
 
-
+        public IReadOnlyList<Conta> Contas => _contas;
         public void ListarContas()
         {
+
+            
             if (_contas.Count > 0)
             {
+                Console.WriteLine("Lista de Todas As Contas:");
                 foreach (Conta conta in _contas)
-                    Console.WriteLine($"TITULAR: {conta.Nome}, SALDO: {conta.Saldo}, ID; {conta.ID}");
+                    Console.WriteLine($"{conta.Nome,-20} | Saldo: {conta.Saldo,15:C} | ID: {conta.ID}");
 
             }
             else
